@@ -51,12 +51,7 @@ class Player {
       playerCount: count
     });
   }
-  resetPlayers(count) {
-    database.ref("/").update({
-      players: 0,
-      carsAtEnd: 0
-    });
-  }
+
   //SA
   update() {
     var playerIndex = "players/player" + this.index;

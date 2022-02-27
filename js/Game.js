@@ -123,21 +123,10 @@ class Game {
 
          if (player.positionY > finshLine) {
            gameState = 2;
-           this.update(gameState);
-           // uncomment correct one out of these to increment the rank of a player by 1 and update it to the database.
-           
-            player.rank += 1;
-            player.updateanimalsAtEnd(player.rank);
-
-           // rank += 1;
-          //Player.updateanimalsAtEnd(rank);
-
-           // player.rank += 1;
-          //  Player.updateanimalsAtEnd(player.rank);
-
-
+           player.rank += 1;
+           Player.updateanimalsAtEnd(player.rank);
            player.update();
-           //this.showRank();
+           this.showRank();
          } 
          if (keyIsDown(UP_ARROW)) {
           player.positionY += 10;
@@ -205,12 +194,10 @@ class Game {
 
   handleGrass(index) {
     animals[index - 1].overlap(grass, function(collector, collected) {
-      //Uncomment the correct line of code out of these 4 to increment the score by 21 points
       player.score += 21;
-      // score += 21;
-      // player.score + 21;
-      // player += 21;
       player.update();
+      //collected is the sprite in the group collectibles that triggered
+      //the event
       collected.remove();
     });
   }
